@@ -7,12 +7,12 @@
 
 using System;
 using System.Collections.Generic;
-using Cirrious.MvvmCross.Binding.Droid;
 using Android.Content;
-using Cirrious.MvvmCross.Droid.Platform;
-using System.Reflection;
 using Cirrious.CrossCore.IoC;
 using Android.Views;
+using Android.Content;
+using Cirrious.MvvmCross.Droid.Platform;
+using Cirrious.MvvmCross.ViewModels;
 
 namespace DeapExtensions.Binding.Droid
 {
