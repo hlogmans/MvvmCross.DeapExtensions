@@ -78,7 +78,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Plugin.cs" />
-    <Compile Include="PluginLoader.cs" />
     <Compile Include="Views\BindableGroupListView.cs" />
     <Compile Include="AndroidBindingResource.cs" />
     <Compile Include="Views\BindableGroupListAdapter.cs" />
