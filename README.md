@@ -13,6 +13,7 @@ When my project evolves, iOS versions will be added, too.
 Resources
 ---------
 This is the original blog post: http://deapsquatter.blogspot.nl/2013/02/mvvmcrossdeapextensions.html
+
 This is a StackOverflow discussion: http://stackoverflow.com/questions/15010246/mvvmcross-expandablelistview
 
 
