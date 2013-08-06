@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Android.Views;
 using Cirrious.CrossCore;
 using Cirrious.CrossCore.IoC;
 using Cirrious.CrossCore.Plugins;
-using DeapExtensions.Binding.Droid.Views;
+using Cirrious.MvvmCross.Binding.Droid.Binders.ViewTypeResolvers;
 
 namespace DeapExtensions.Binding.Droid
 {
@@ -13,14 +11,19 @@ namespace DeapExtensions.Binding.Droid
     {
         public void Load()
         {
-            Mvx.RegisterType(typeof(BindableGroupListAdapter), typeof(BindableGroupListAdapter));
-            Mvx.RegisterType(typeof(BindableExpandableListAdapter), typeof(BindableExpandableListAdapter));
-            Mvx.RegisterType(typeof(BindableGroupListView), typeof(BindableGroupListView));
-            Mvx.RegisterType(typeof(BindableExpandableListView), typeof(BindableExpandableListView));
+            // The type cache is not initialized yet when the plugins are loaded. So add a callback when is does.
+            Mvx.CallbackWhenRegistered<IMvxTypeCache<View>>(FillViewTypes);
+            Mvx.CallbackWhenRegistered<IMvxAxmlNameViewTypeResolver>(FillAxmlViewTypeResolver);
+        }
 
-            //var viewCache = Mvx.Resolve<IMvxTypeCache<View>>();
-            //viewCache.AddAssembly(typeof(BindableExpandableListAdapter).Assembly);
+        private void FillAxmlViewTypeResolver(IMvxAxmlNameViewTypeResolver viewTypeResolver)
+        {
+            viewTypeResolver.ViewNamespaceAbbreviations["DeapExt"] = "DeapExtensions.Binding.Droid.Views";
+        }
 
+        protected void FillViewTypes(IMvxTypeCache<View> cache)
+        {
+            cache.AddAssembly(typeof(DeapExtensions.Binding.Droid.Views.BindableGroupListView).Assembly);
         }
     }
 }
