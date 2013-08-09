@@ -134,12 +134,7 @@ namespace DeapExtensions.Binding.Droid.Views
             if (newObservable != null)
                 newObservable.CollectionChanged += OnItemsSourceCollectionChanged;
 
-            if (value != null)
-            {
-                // dit weggehaald FlattenAndSetSource(value);
-            }
-            else
-                base.SetItemsSource(null);
+            base.SetItemsSource(value);
         }
 
 
